@@ -1,0 +1,28 @@
+[package]
+name = "multipart-stream"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[[bin]]
+name="stream_disk"
+
+[[bin]]
+name="stream_http"
+
+[[bin]]
+name="multipart"
+
+[lib]
+name="request"
+path="src/request.rs"
+
+[dependencies]
+clap = { version = "4.5.4", features = ["derive"] }
+dotenvy = "0.15.7"
+futures-util = "0.3.30"
+mime_guess = "2.0.4"
+reqwest = { version = "0.12.3", features = ["json", "multipart", "stream"] }
+serde_json = "1.0.115"
+tokio = { version = "1.37.0", features = ["macros", "fs", "rt-multi-thread"] }
+tokio-util = { version = "0.7.10", features = ["codec"] }
